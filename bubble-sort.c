@@ -24,16 +24,16 @@ void bubbleSort(int list[], int size){
     
 }
 
-int main(int argc, char* argv[]){
-    int* list = malloc(sizeof(int) * argc - 1);
-    for (int i = 0; i < argc - 1; i++)
-    {
-        list[i] = atoi(argv[i+1]);
-    }
-    bubbleSort(list, argc - 1);
-    for (int i = 0; i < argc - 1; i++)
-    {
-        printf("%d ", list[i]);
-    }
-    printf("\n");
-}
+// int main(int argc, char* argv[]){
+//     int* list = malloc(sizeof(int) * argc - 1);
+//     for (int i = 0; i < argc - 1; i++)
+//     {
+//         list[i] = atoi(argv[i+1]);
+//     }
+//     bubbleSort(list, argc - 1);
+//     for (int i = 0; i < argc - 1; i++)
+//     {
+//         printf("%d ", list[i]);
+//     }
+//     printf("\n");
+// }
