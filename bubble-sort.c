@@ -1,19 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+void delay(int number_of_seconds);
 
 void swap(int* first, int* second){
+    delay(1);
     int temp = *first;
     *first = *second;
     *second = temp;
 }
 
-void bubbleSort(int list[], int size){
+bool bubbleSort(int list[], int size){
     bool swapped;
+    // printf("yay3\n");
     for (int i = 0; i < size - 1; i++)
     {
         swapped = false;
         for (int j = 0; j < size - i - 1; j++)
         {
+            
             if (list[j] > list[j+1]){
                 swap(&list[j], &list[j+1]);
                 swapped = true;
@@ -21,7 +25,7 @@ void bubbleSort(int list[], int size){
         }
         if (!swapped) break;
     }
-    
+    return true;
 }
 
 // int main(int argc, char* argv[]){
