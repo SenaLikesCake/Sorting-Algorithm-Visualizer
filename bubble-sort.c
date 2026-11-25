@@ -9,7 +9,7 @@ void swap(int* first, int* second){
     *second = temp;
 }
 
-bool bubbleSort(int list[], int size){
+bool bubbleSort(int list[], int size, int* index){
     bool swapped;
     // printf("yay3\n");
     for (int i = 0; i < size - 1; i++)
@@ -17,7 +17,7 @@ bool bubbleSort(int list[], int size){
         swapped = false;
         for (int j = 0; j < size - i - 1; j++)
         {
-            
+            *index = j;   
             if (list[j] > list[j+1]){
                 swap(&list[j], &list[j+1]);
                 swapped = true;
