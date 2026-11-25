@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void draw(int list[], int size){
-    // printf("yay4\n");
+    
     int max = list[0];
     system("clear");
     for (int i = 1; i < size; i++)
@@ -24,6 +25,13 @@ void draw(int list[], int size){
         }
         printf("\n");
     }
+    for (int i = 0; i < size; i++)
+    {
+        if (list[i] < 10) printf(" ");
+        printf("%d", list[i]);
+    }
+    printf("\n");
+    
 }
 
 // int main(int argc, char* argv[]){

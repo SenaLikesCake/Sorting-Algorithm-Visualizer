@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <unistd.h>
+#include <string.h>
 
 void draw(int list[], int size);
 bool bubbleSort(int list[], int size);
 void delay(int number_of_seconds);
 
 int main(int argc, char* argv[]){
-    int size = argc - 1;
     const int SEGSIZE = 4096;
     
     int *list;
@@ -18,9 +18,25 @@ int main(int argc, char* argv[]){
     if(list == MAP_FAILED) exit(EXIT_FAILURE);
     if(finished == MAP_FAILED) exit(EXIT_FAILURE);
     *finished = false;
-    for (int i = 0; i < size; i++)
-    {
-        list[i] = atoi(argv[i+1]);
+
+    int size;
+    if (strcmp(argv[1], "-r") == 0){
+        size = atoi(argv[2]);
+        int min = atoi(argv[3]);
+        int max = atoi(argv[4]);
+        for (int i = 0; i < size; i++)
+        {
+            list[i] = rand() % (max - min + 1) + min;
+        }
+        
+    }
+    else{
+        size = argc - 1;
+        for (int i = 0; i < size; i++)
+        {
+            list[i] = atoi(argv[i+1]);
+        }
+
     }
 
     pid_t pid = fork();
