@@ -3,7 +3,10 @@
 
 
 void draw(int list[], int size){
-    
+    const char *RESET = "\033[0m";     // Resets all attributes
+    const char *RED = "\033[31m";      // Sets foreground color to red
+    const char *GRAY = "\033[90m";     // Sets foreground color to bright black (often appears gray)
+
     int max = list[0];
     system("clear");
     for (int i = 1; i < size; i++)
@@ -14,6 +17,8 @@ void draw(int list[], int size){
     {
         for (int j = 0; j < size; j++)
         {
+            if (j % 2 == 0) printf("%s", RESET);
+            else printf("%s", GRAY);
             if (list[j] >= i){
                 printf("##");
                 // fflush(stdout);
@@ -27,10 +32,13 @@ void draw(int list[], int size){
     }
     for (int i = 0; i < size; i++)
     {
-        if (list[i] < 10) printf(" ");
+        if (i % 2 == 0) printf("%s", RESET);
+        else printf("%s", GRAY);
+        if (list[i] < 10) printf("0");
         printf("%d", list[i]);
     }
     printf("\n");
+    printf("%s", RESET);
     
 }
 
